@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function MenuToggleButton(props) {
   const { open, setOpen } = props;
@@ -9,7 +10,7 @@ export default function MenuToggleButton(props) {
   return (
     <StyledToggleButton open={open} onClick={() => setOpen(!open)}>
       <IconButton aria-label="Open menu" component="span">
-        <MenuIcon />
+        {open ? <CloseIcon /> : <MenuIcon />}
       </IconButton>
     </StyledToggleButton>
   );

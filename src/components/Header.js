@@ -93,14 +93,13 @@ const StyledHeader = styled.header`
 
 const Navigation = styled.nav`
   @media (max-width: 768px) {
-    display: ${(props) => (props.open ? 'block' : 'none')};
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    right: ${(props) => (props.open ? '0' : 'calc(-480px - 3px)')};
     background-color: #fff;
-    width: 250px;
+    width: 480px;
+    transition: 0.2s;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14),
       0px 1px 10px rgba(0, 0, 0, 0.12);
     margin-right: 0;
@@ -117,6 +116,7 @@ const Navigation = styled.nav`
     list-style-type: none;
     display: flex;
     align-items: center;
+    height: 100%;
 
     li {
       margin-right: 25px;
@@ -137,20 +137,12 @@ const Navigation = styled.nav`
     }
 
     @media (max-width: 768px) {
-      box-sizing: border-box;
-      margin: 0;
-      list-style-type: none;
-      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: center;
 
       li {
         margin: 0;
-        padding: 12px 0;
-
-        &:first-child {
-          margin-top: 50px;
-        }
+        padding: 18px 0;
 
         &:hover a {
           color: #3d403f;
@@ -167,12 +159,12 @@ const Navigation = styled.nav`
   }
 
   div:nth-child(2) {
+    display: flex;
+    margin: 24px 24px 24px 20px;
+
     @media (min-width: 768px) {
       display: none;
     }
-
-    display: flex;
-    margin: 24px 24px 24px 20px;
 
     button {
       @media (max-width: 768px) {
