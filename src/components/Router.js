@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { lazy, useEffect } from 'react';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 // page components
 const About = lazy(() => import('./About'));
@@ -11,6 +11,12 @@ const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
 const Projects = lazy(() => import('./Projects'));
 
 export default function Router() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <Switch>
       <Route exact path="/" component={Home} />
