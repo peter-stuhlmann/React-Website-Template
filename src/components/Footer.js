@@ -8,11 +8,11 @@ export default function Footer() {
   const navItems = [
     {
       title: 'Legal Notice',
-      href: '/legal-notice',
+      href: 'legal-notice',
     },
     {
       title: 'Privacy Policy',
-      href: '/privacy-policy',
+      href: 'privacy-policy',
     },
   ];
 

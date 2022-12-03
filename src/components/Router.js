@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // page components
 const About = lazy(() => import('./About'));
@@ -18,14 +18,14 @@ export default function Router() {
   }, [pathname]);
 
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/projects" component={Projects} />
-      <Route exact path="/contact" component={Contact} />
-      <Route exact path="/legal-notice" component={LegalNotice} />
-      <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-      <Route component={NotFound} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/legal-notice" element={<LegalNotice />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route element={<NotFound />} />
+    </Routes>
   );
 }
