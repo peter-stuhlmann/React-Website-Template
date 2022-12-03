@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import YouTubeIcon from '@material-ui/icons/YouTube';
-import PinterestIcon from '@material-ui/icons/Pinterest';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import PinterestIcon from '@mui/icons-material/Pinterest';
 
 export default function SocialMediaIcons() {
   const navItems = [
