@@ -3,32 +3,40 @@ import styled from 'styled-components';
 import { NavHashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 
-import ToggleButton from './MenuToggleButton';
+// mui
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
+
+// image
+import Logo from '../assets/images/logo.svg';
+
+// helpers
 import useOnClickOutside from '../helpers/useOnClickOutside';
 import scrollWithOffset from '../helpers/scrollWidthOffset';
-import Logo from '../assets/images/logo.svg';
+
+// data
+const headerNavigation = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'About',
+    href: '/about',
+  },
+  {
+    title: 'Projects',
+    href: '/projects',
+  },
+  {
+    title: 'Contact',
+    href: '/contact',
+  },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-
-  const headerNavigation = [
-    {
-      title: 'Home',
-      href: '/',
-    },
-    {
-      title: 'About',
-      href: '/about',
-    },
-    {
-      title: 'Projects',
-      href: '/projects',
-    },
-    {
-      title: 'Contact',
-      href: '/contact',
-    },
-  ];
 
   const nav = useRef();
   useOnClickOutside(nav, () => setOpen(false));
@@ -59,7 +67,11 @@ export default function Header() {
             </ul>
           </Navigation>
         </div>
-        <ToggleButton open={open} setOpen={setOpen} />
+        <ToggleButton open={open} onClick={() => setOpen(!open)}>
+          <IconButton aria-label="Open menu">
+            {open ? <CloseIcon /> : <MenuIcon />}
+          </IconButton>
+        </ToggleButton>
       </div>
     </StyledHeader>
   );
@@ -172,5 +184,18 @@ const Navigation = styled.nav`
         width: 100%;
       }
     }
+  }
+`;
+
+const ToggleButton = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 769px) {
+    display: none !important;
+  }
+
+  .MuiIconButton-colorPrimary {
+    color: #0d0d0d;
   }
 `;
